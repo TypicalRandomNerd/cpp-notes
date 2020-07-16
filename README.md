@@ -32,5 +32,5 @@ The first thing one should learn about C++ is namespaces. If you're coming over 
 * They're both the same program.
 * "std::" can be omitted by adding "using namespace std" at the top of your code (or any other namespace)
  * If you are familiar with Python, it's the C++ version of "import <libraryname>" and "from libraryname import modulename".
-
+* Void can also be omitted as an argument to the main() function since void doesn't pass anything; however, just know you may see code written both ways, as sampled above.
 
