@@ -231,5 +231,19 @@ endl is a string manipulator in the std namespace, so to use it we must either d
     Hello World!
     I am learning C++
     
-Whether to use the \n escape sequence or the endl string manipulator is not a one-size-fits-all choice.  
+Whether to use the \n escape sequence or the endl string manipulator is not a one-size-fits-all choice. Like with anything else, _**use the best tool for the job**_.
 
+## Commenting
+Code commenting is something you will without a doubt do and can be done in two different ways.
+
+#### Single Line
+A single line comment can be accomplished by using two slashes //
+
+    cout << "Hello World!"; // This is a comment
+
+#### Multi Line
+Multi line comments are common when you need to describe a snippet of code in more detail and can be accomplished with the /*.
+
+    /* The code below will print the words Hello World!
+    to the screen, and it is amazing */
+    cout << "Hello World!";
