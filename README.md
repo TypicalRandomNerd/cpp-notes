@@ -152,7 +152,84 @@ Every C++ program must have a main() function. This was vastly different from me
 
 If you include your namespaces globally, you don't have to declare them in-line in your code.  
 
->Not to be confused with the actual _#include_ line, which is for libraries.  
+>**NOTE:** Not to be confused with the actual _#include_ line, which is for libraries.  
 
+It is already becoming a lot and we haven't even set our first variable yet, but without these foundational skills you will not be able to understand how to get beyond a basic "Hello, world!" program.
 
+## New Line
+Remember how I said C++ is an incredibly stupid and cryptic language and it will only do what you explicitly tell it to? The same comes to a new line. If you try to run cout statements in succession to print multiple lines of text, C++ will start the next line right against the end of the preceding line unless you tell it to break a new line.  
+
+**Code:**
+
+    #include <iostream>
+    using namespace std;
+
+    int main()
+    {
+      cout << "Hello World!";
+      cout << "I am learning C++";
+      return 0;
+    }
+    
+**Output:**
+
+    $g++ -o main *.cpp
+    $main
+    Hello World!I am learning C++
+    
+We can instruct C++ to move down a line in one of two ways:
+
+#### \n escape sequence
+Beginning or ending a string with "\n" will instruct the compiler to move down a line.
+
+**Code:**
+
+    #include <iostream>
+    using namespace std;
+
+    int main() {
+      cout << "Hello World!\n";
+      cout << "\nI am learning C++";
+      return 0;
+    }
+    
+**Output:**
+
+    $g++ -o main *.cpp
+    $main
+    Hello World!
+
+    I am learning C++
+    
+A line is skipped because we instruct it to move down a line at the end of the first cout statement; then again at the beginning of the second cout statement. If we only use the \n sequence in the first cout statement, then the second cout statement would be right under the first statement:
+
+**Output:**
+
+    $g++ -o main *.cpp
+    $main
+    Hello World!
+    I am learning C++
+
+#### endl
+endl is a string manipulator in the std namespace, so to use it we must either declare the std namespace globally or in-line when we call endl.
+
+**Code:**
+
+    #include <iostream>
+    using namespace std;
+
+    int main() {
+      cout << "Hello World!" << endl;
+      cout << "I am learning C++";
+      return 0;
+    }
+    
+**Output:**
+
+    $g++ -o main *.cpp
+    $main
+    Hello World!
+    I am learning C++
+    
+Whether to use the \n escape sequence or the endl string manipulator is not a one-size-fits-all choice.  
 
