@@ -3,7 +3,9 @@
 This document contains my notes, sample code, and pseudocode as I dive deeper into my C++ journey. This allows me to create a C++ Reference Guide as I learn, similiar to my [Python Reference Guide](https://github.com/TypicalRandomNerd/python-reference-guide) for Python.
 
 ## Getting Started With C++
-Lets take a look at our first program:
+Lets take a look at our first program:  
+
+**Code:**
 
     #include <iostream>
 
@@ -29,7 +31,6 @@ If we take the cryptic code above of our first program and strip away the #inclu
        return 0;
     }
 
-
 **Output:**
 
     $g++ -o main *.cpp
@@ -47,7 +48,6 @@ It knows that the std namespace exists, and we can test that by typing random go
        stsdfsdfd::cout << "Hello World\n"; 
        return 0;
     }
-
 
 **Output:**
 
@@ -68,14 +68,14 @@ But it just has no clue what I mean by cout until I tell it at the top of my cod
         std::cout << "Hello, world!";
     }
     
-    
+**Output:**
     
     $g++ -o main *.cpp
     $main
     Hello, world!
 
 ## Namespaces
-The first thing one should learn about C++ is namespaces. If you're coming over from C you're likely already familiar with namespaces. However, if you skipped C you are likely to be experiencing namespaces for the first time. A namespace is a scope where functions can reside. This prevents naming conflicts. You'll see C++ programs written in one of two ways: in-code namespaces and globally declared namespaces.
+Like the libraries, namespaces also have to be declared before the compiler knows what you are talking about. Namespaces can be declared in one of two ways: globally, and in-line.
 
 #### Globally declared
 
@@ -85,11 +85,39 @@ The first thing one should learn about C++ is namespaces. If you're coming over 
 
     namespacename::function();
     
+Without declaring a namespace, we'll run into compiling errors.
+
+**Code:**
+
+    #include <iostream>
+
+    int main()
+    {
+        cout << "Hello, world!";
+    }
+    
+**Output:**
+
+    $g++ -o main *.cpp
+    main.cpp: In function ‘int main()’:
+    main.cpp:5:5: error: ‘cout’ was not declared in this scope
+         cout << "Hello, world!";
+         ^~~~
+    main.cpp:5:5: note: suggested alternative:
+    In file included from main.cpp:1:0:
+    /usr/include/c++/7/iostream:61:18: note:   ‘std::cout’
+       extern ostream cout;  /// Linked to standard output
+                      ^~~~
+
+
+
 ## The main() Function
 Every C++ program must have a main() function. This was vastly different from me coming over from Python since that's not the case with that language.
 
 ## My first program!
 #### Globally declared namespace
+
+**Code:**
 
     #include <iostream>
     using namespace std;
@@ -99,8 +127,15 @@ Every C++ program must have a main() function. This was vastly different from me
         cout << "Hello, world!";
     }
 
+**Output:**
+
+    $g++ -o main *.cpp
+    $main
+    Hello, world!
 
 #### In-line declared namespace
+
+**Code:**
 
     #include <iostream>
 
@@ -109,8 +144,15 @@ Every C++ program must have a main() function. This was vastly different from me
         std::cout << "Hello, world!";
     }
 
-* They're both the same program.
-* "std::" can be omitted by adding "using namespace std" at the top of your code (or any other namespace)
-  * If you are familiar with Python, it's the C++ version of "import <libraryname>" and "from libraryname import modulename".
-* Void can also be omitted as an argument to the main() function since void doesn't pass anything; however, just know you may see code written both ways, as sampled above.
+**Output:**
+
+    $g++ -o main *.cpp
+    $main
+    Hello, world!
+
+If you include your namespaces globally, you don't have to declare them in-line in your code.  
+
+>Not to be confused with the actual _#include_ line, which is for libraries.  
+
+
 
