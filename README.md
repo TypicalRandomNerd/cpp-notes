@@ -2,6 +2,8 @@
 
 This document contains my notes, sample code, and pseudocode as I dive deeper into my C++ journey. This allows me to create a C++ Reference Guide as I learn, similiar to my [Python Reference Guide](https://github.com/TypicalRandomNerd/python-reference-guide) for Python.
 
+I will do my best to explain things, but it is recommended to have some programming experience to better understand this guide, preferably in Java or C#. This is not a full book, but instead a shortcut guide, so if you lack knowledge of what a variable is and how to access and evaluate variables in other languages then this probably isn't for you. Instead, a fully fledged C++ book such as C++ Crash Course may be better suited for you.
+
 ## Getting Started With C++
 Lets take a look at our first program:  
 
@@ -19,9 +21,9 @@ The first time I saw a typical Hello World program in C++ compared to Python, I 
 If you are coming over from something like Python, the above code albeit simple, probably still looks cryptic. We'll be breaking things down as we go and you are sure to have a better understanding of how the C++ language works.
 
 ## IWYU: Include What You Use
-This is a common phrase you're going to (possibly) hear in the C++ community. C++ is a very old, cryptic, and to be quite honest, dumb language. C++ assumes nothing, and will only do hat you tell it. It will also know know about what you expose to it. This is one of the things that (likely) makes it so fast compared to other languages.  
+This is a common phrase you're going to (possibly) hear in the C++ community. C++ is a very old, cryptic, and to be quite honest, dumb language. C++ assumes nothing, and will only do hat you tell it. This is one of the things that (likely) makes it so fast compared to other languages.  
 
-If we take the cryptic code above of our first program and strip away the #include statement, C++ has no idea what cout is. You haven't told it about the library where cout resides in, so it's completely oblivious to the fact that it even exists.  
+If we take the cryptic code above of our first program and strip away the `#include` statement, C++ has no idea what `cout` is. You haven't told it about the library where `cout` resides in, so it's completely oblivious to the fact that it even exists.  
 
 **Code:**
 
@@ -39,7 +41,7 @@ If we take the cryptic code above of our first program and strip away the #inclu
         std::cout << "Hello World\n";
              ^~~~
 
-It knows that the std namespace exists, and we can test that by typing random gobbly goop in place of the std namespace:  
+It knows that the `std` namespace exists, and we can test that by typing random gobbly goop in place of the `std` namespace:  
 
 **Code:**
 
@@ -57,7 +59,7 @@ It knows that the std namespace exists, and we can test that by typing random go
         stsdfsdfd::cout << "Hello World\n";
         ^~~~~~~~~
 
-But it just has no clue what I mean by cout until I tell it at the top of my code to include the iostream library as senn in the original code, our program now executes:  
+But it just has no clue what I mean by cout until I tell it at the top of my code to include the `iostream` library as seen in the original code, our program now executes:  
 
 **Code:**
 
@@ -112,7 +114,7 @@ Without declaring a namespace, we'll run into compiling errors.
 
 
 ## The main() Function
-Every C++ program must have a main() function. This was vastly different from me coming over from Python since that's not the case with that language.
+Every C++ program must have a `main()` function. This was vastly different from me coming over from Python since that's not the case with that language.
 
 ## My first program!
 #### Globally declared namespace
@@ -152,12 +154,12 @@ Every C++ program must have a main() function. This was vastly different from me
 
 If you include your namespaces globally, you don't have to declare them in-line in your code.  
 
->**NOTE:** Not to be confused with the actual _#include_ line, which is for libraries.  
+>**NOTE:** Not to be confused with the actual `#include` line, which is for libraries.  
 
 It is already becoming a lot and we haven't even set our first variable yet, but without these foundational skills you will not be able to understand how to get beyond a basic "Hello, world!" program.
 
 ## New Line
-Remember how I said C++ is an incredibly stupid and cryptic language and it will only do what you explicitly tell it to? The same comes to a new line. If you try to run cout statements in succession to print multiple lines of text, C++ will start the next line right against the end of the preceding line unless you tell it to break a new line.  
+Remember how I said C++ is an incredibly stupid and cryptic language and it will only do what you explicitly tell it to? The same comes to a new line. If you try to run `cout` statements in succession to print multiple lines of text, C++ will start the next line right against the end of the preceding line (on the same line) unless you tell it to break a new line.  
 
 **Code:**
 
@@ -180,7 +182,7 @@ Remember how I said C++ is an incredibly stupid and cryptic language and it will
 We can instruct C++ to move down a line in one of two ways:
 
 #### \n escape sequence
-Beginning or ending a string with "\n" will instruct the compiler to move down a line.
+Beginning or ending a string with `\n` will instruct the compiler to move down a line.
 
 **Code:**
 
@@ -201,7 +203,7 @@ Beginning or ending a string with "\n" will instruct the compiler to move down a
 
     I am learning C++
     
-A line is skipped because we instruct it to move down a line at the end of the first cout statement; then again at the beginning of the second cout statement. If we only use the \n sequence in the first cout statement, then the second cout statement would be right under the first statement:
+A line is skipped because we instruct it to move down a line at the end of the first `cout` statement; then again at the beginning of the second `cout` statement. If we only use the `\n` sequence in the first `cout` statement, then the second `cout` statement would be right under the first statement:
 
 **Output:**
 
@@ -211,7 +213,7 @@ A line is skipped because we instruct it to move down a line at the end of the f
     I am learning C++
 
 #### endl
-endl is a string manipulator in the std namespace, so to use it we must either declare the std namespace globally or in-line when we call endl.
+`endl` is a string manipulator in the `std` namespace, so to use it we must either declare the `std` namespace globally or in-line when we call `endl`.
 
 **Code:**
 
@@ -231,19 +233,44 @@ endl is a string manipulator in the std namespace, so to use it we must either d
     Hello World!
     I am learning C++
     
-Whether to use the \n escape sequence or the endl string manipulator is not a one-size-fits-all choice. Like with anything else, _**use the best tool for the job**_.
+Whether to use the `\n` escape sequence or the `endl` string manipulator is not a one-size-fits-all choice. Like with anything else, _**use the best tool for the job**_.
 
 ## Commenting
 Code commenting is something you will without a doubt do and can be done in two different ways.
 
 #### Single Line
-A single line comment can be accomplished by using two slashes //
+A single line comment can be accomplished by using two slashes `//`.
 
     cout << "Hello World!"; // This is a comment
 
 #### Multi Line
-Multi line comments are common when you need to describe a snippet of code in more detail and can be accomplished with the /*.
+Multi line comments are common when you need to describe a snippet of code in more detail and can be accomplished with the `/* */` syntax.
 
     /* The code below will print the words Hello World!
     to the screen, and it is amazing */
     cout << "Hello World!";
+
+There is no right or wrong when it comes to commenting; however, it is best to keep comments as short as possible.
+
+## Variables
+Variables in C++ must be defined with a data type using the `datatype name = value` syntax. There are five main data types that are used; however, there are many more beyond these 5 core data types.
+
+**Code:**
+
+    int myNum = 15;
+    cout << myNum;
+    
+Variables may also be declared and instantiated on separate lines of code.
+
+    int myNum;
+    myNum = 15;
+    cout << myNum;
+    
+ Multiple variables may be declared and instantiated on the same line of code, as long as the variables are all of the same data type.
+ 
+    int x = 5, y = 6, z = 50;
+    cout << x + y + z;
+
+Variables will be covered in more detail later, for now you should just understand the syntax to declare, instantiate, and access a variable.
+
+## Input
