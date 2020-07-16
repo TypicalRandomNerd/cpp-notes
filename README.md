@@ -19,7 +19,9 @@ If you are coming over from something like Python, the above code albeit simple,
 ## IWYU: Include What You Use
 This is a common phrase you're going to (possibly) hear in the C++ community. C++ is a very old, cryptic, and to be quite honest, dumb language. C++ assumes nothing, and will only do hat you tell it. It will also know know about what you expose to it. This is one of the things that (likely) makes it so fast compared to other languages.  
 
-If we take the cryptic code above of our first program and strip away the #include statement, C++ has no idea what cout is. You haven't told it about the library where cout resides in, so it's completely oblivious to the fact that it even exists.
+If we take the cryptic code above of our first program and strip away the #include statement, C++ has no idea what cout is. You haven't told it about the library where cout resides in, so it's completely oblivious to the fact that it even exists.  
+
+**Code:**
 
     int main()
     {
@@ -28,6 +30,7 @@ If we take the cryptic code above of our first program and strip away the #inclu
     }
 
 
+**Output:**
 
     $g++ -o main *.cpp
     main.cpp: In function ‘int main()’:
@@ -35,7 +38,9 @@ If we take the cryptic code above of our first program and strip away the #inclu
         std::cout << "Hello World\n";
              ^~~~
 
-It knows that the std namespace exists, and we can test that by typing random gobbly goop in place of the std namespace:
+It knows that the std namespace exists, and we can test that by typing random gobbly goop in place of the std namespace:  
+
+**Code:**
 
     int main()
     {
@@ -44,6 +49,7 @@ It knows that the std namespace exists, and we can test that by typing random go
     }
 
 
+**Output:**
 
     $g++ -o main *.cpp
     main.cpp: In function ‘int main()’:
@@ -51,7 +57,9 @@ It knows that the std namespace exists, and we can test that by typing random go
         stsdfsdfd::cout << "Hello World\n";
         ^~~~~~~~~
 
-But it just has no clue what I mean by cout until I tell it at the top of my code to include the iostream library as senn in the original code, our program now executes:
+But it just has no clue what I mean by cout until I tell it at the top of my code to include the iostream library as senn in the original code, our program now executes:  
+
+**Code:**
 
     #include <iostream>
 
