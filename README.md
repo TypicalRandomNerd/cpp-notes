@@ -274,3 +274,24 @@ Variables may also be declared and instantiated on separate lines of code.
 Variables will be covered in more detail later, for now you should just understand the syntax to declare, instantiate, and access a variable.
 
 ## Input
+Input is captured primarily in one of two ways: `cin` or `getline`. `cin` works well for intergers and single word strings, but if you are trying to capture a phrase, `cin` will only capture the first word, at which you will need to use `getline`.
+
+#### cin
+
+**Code:**
+
+    string name; // Create a string variable
+    cout << "Hello, what is your name? \n"; // Prompt user for their name
+    cin >> name; // Capture input in our newly created variable
+    
+#### getline()
+
+**Code:**
+
+    string name;
+    cout << "Hello, what is your name? \n";
+    getline(cin, name);
+    cout << name;
+    
+We create a string type called name, then we prompt the user for their name, we call the `getline()` method and pass the `cin` command along with the variable the input is to be stored in.
+
