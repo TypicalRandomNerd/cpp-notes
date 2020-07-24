@@ -464,5 +464,5 @@ A shortcut that can be used to loop through a vector with a `range for loop`. A 
             cout << x << "\n";
     }
     
-The way we interpret this code in the `for loop` is "for each `x` in `ints`, print the value of `x` to the console. Much more simple than `for (int i = 0; i < ints.size(); ++i);`.
+The way we interpret this code in the `for loop` is "for each `x` in `ints`, print the value of `x` to the console". Much more simple than `for (int i = 0; i < ints.size(); ++i);`.
 
