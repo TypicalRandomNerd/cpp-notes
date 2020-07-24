@@ -451,3 +451,18 @@ The `10` denotes the length of the vector.
 * And finally, we print out each value in the vector
 
 If you are coming over from Python (like myself), think of `size()` as `len()` from Python. The only difference here is in Python, we don't have to pass the `len()`, or `size()` in our case because Python is smart enough to determine the length of a list or `vector` in C++ terms, whereas C++ is extremely cryptic and has no idea how long the `vector` is unless we tell it with the `size()` function.
+
+##### Accessing a Vector With a Half-Open Sequence
+A shortcut that can be used to loop through a vector with a `range for loop`. A `range for loop` does the same exact thing as the aforementioned `for loop`, but the syntax is much more simple.
+
+**Code**
+
+    int main()
+    {
+        vector<int> ints = {35, 30, 36, 5, 2};
+        for (int x : ints)
+            cout << x << "\n";
+    }
+    
+The way we interpret this code in the `for loop` is "for each `x` in `ints`, print the value of `x` to the console. Much more simple than `for (int i = 0; i < ints.size(); ++i);`.
+
