@@ -448,5 +448,6 @@ The `10` denotes the length of the vector.
 * Then we create a `for loop` that iterates through the vector
   * We use `size()` because without it we don't know how big the `vector` is
     * If we do `cout << ints.size() << "\n"`, we would receive an output of `5`
-* And finally, be print out each value in the vector
+* And finally, we print out each value in the vector
 
+If you are coming over from Python (like myself), think of `size()` as `len()` from Python. The only difference here is in Python, we don't have to pass the `len()`, or `size()` in our case because Python is smart enough to determine the length of a list or `vector` in C++ terms, whereas C++ is extremely cryptic and has no idea how long the `vector` is unless we tell it with the `size()` function.
