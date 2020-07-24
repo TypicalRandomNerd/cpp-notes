@@ -466,3 +466,15 @@ A shortcut that can be used to loop through a vector with a `range for loop`. A 
     
 The way we interpret this code in the `for loop` is "for each `x` in `ints`, print the value of `x` to the console". Much more simple than `for (int i = 0; i < ints.size(); ++i);`.
 
+##### Expanding Our Vector
+A vector can by dynamically increased with the `push_back()` function.
+
+Start with an empty `vector`, then add to it:
+
+int main()
+{
+    vector<int> ints = {35, 30, 36, 5, 2};
+    for (int x : ints)
+        cout << x << "\n";
+}
+    
